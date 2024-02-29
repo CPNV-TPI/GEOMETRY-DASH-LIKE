@@ -23,7 +23,9 @@ public class CubeJump : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return _rigidbody2D.velocity.y == 0;
+        float threshold = 0.01f;
+
+        return Mathf.Abs(_rigidbody2D.velocity.y) < threshold;
     }
 
 
