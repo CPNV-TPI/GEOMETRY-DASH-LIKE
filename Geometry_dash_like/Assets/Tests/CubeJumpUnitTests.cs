@@ -5,38 +5,38 @@ using UnityEngine.TestTools;
 
 public class CubeJumpUnitTests
 {
-    private GameObject gameObject;
-    private CubeJump cubeJump;
-    private Rigidbody2D rigidbody2D;
+    private GameObject _gameObject;
+    private CubeJump _cubeJump;
+    private Rigidbody2D _rigidbody2D;
 
     [SetUp]
     public void SetUp()
     {
-        gameObject = new GameObject();
-        cubeJump = gameObject.AddComponent<CubeJump>();
-        rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+        _gameObject = new GameObject();
+        _cubeJump = _gameObject.AddComponent<CubeJump>();
+        _rigidbody2D = _gameObject.GetComponent<Rigidbody2D>();
     }
 
     [TearDown]
     public void TearDown()
     {
-        Object.DestroyImmediate(gameObject);
+        Object.DestroyImmediate(_gameObject);
     }
 
     [UnityTest]
     public IEnumerator Jump_IsGrounded_cubeCanJump()
     {
         // Arrange
-        rigidbody2D.velocity = Vector2.zero; // S'assurer que le cube est "au sol"
+        _rigidbody2D.velocity = Vector2.zero; 
 
         // Act
-        cubeJump.Jump();
+        _cubeJump.Jump();
         
         // Skip a frame.
         yield return null;
 
         // Assert
-        Assert.IsTrue(rigidbody2D.velocity.y > 0, "La force de saut a été appliquée correctement.");
+        Assert.IsTrue(_rigidbody2D.velocity.y > 0);
     }
     
     
@@ -44,16 +44,16 @@ public class CubeJumpUnitTests
     public IEnumerator Jump_IsNotGrounded_cubeCannotJump()
     {
         // Arrange
-        float initialVelocityY = 5.0f; // Simuler que le cube est en mouvement / en l'air
-        rigidbody2D.velocity = new Vector2(0, initialVelocityY); // Définir une vitesse verticale pour simuler le non-contact avec le sol
+        float initialVelocityY = 5.0f; 
+        _rigidbody2D.velocity = new Vector2(0, initialVelocityY); 
 
         // Act
-        cubeJump.Jump();
+        _cubeJump.Jump();
         
         // Skip a frame.
         yield return null;
 
         // Assert
-        Assert.AreEqual(initialVelocityY, rigidbody2D.velocity.y, 0.01f, "Le cube ne saute pas.");
+        Assert.AreEqual(initialVelocityY, _rigidbody2D.velocity.y, 0.01f);
     }
 }
