@@ -36,7 +36,7 @@ public class CubeJumpUnitTests
         yield return null;
 
         // Assert
-        Assert.IsTrue(rigidbody2D.velocity.y > 0, "La force de saut n'a pas été appliquée correctement.");
+        Assert.IsTrue(rigidbody2D.velocity.y > 0, "La force de saut a été appliquée correctement.");
     }
     
     
@@ -54,6 +54,6 @@ public class CubeJumpUnitTests
         yield return null;
 
         // Assert
-        Assert.IsTrue(rigidbody2D.velocity.y > 0, "La force de saut n'a pas été appliquée correctement.");
+        Assert.AreEqual(initialVelocityY, rigidbody2D.velocity.y, 0.01f, "Le cube ne saute pas.");
     }
 }
