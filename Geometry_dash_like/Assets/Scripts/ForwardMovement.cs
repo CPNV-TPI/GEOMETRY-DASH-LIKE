@@ -7,6 +7,11 @@ public class ForwardMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Move();
+    }
+
+    private void Move()
+    {
         transform.Translate(new Vector2(_speed * Time.deltaTime, 0));
     }
 }
