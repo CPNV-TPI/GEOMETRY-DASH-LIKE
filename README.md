@@ -1,4 +1,4 @@
-# Geometry-Dash-Like
+# Geometry_dash_like
 
 The title must be replaced by the application's name>.
 
