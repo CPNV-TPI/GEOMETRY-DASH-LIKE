@@ -5,7 +5,7 @@ using UnityEngine;
 public class CubeJump : MonoBehaviour
 {
     private float _jumpForce = 10f; 
-    Rigidbody2D _rigidbody2D;
+    private Rigidbody2D _rigidbody2D;
     
     private void Awake()
     {
