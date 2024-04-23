@@ -1,70 +1,71 @@
-# Geometry_dash_like
-
-The title must be replaced by the application's name>.
+# Geometry-Dash-Like
 
 ## Description
 
-This project is designed to .... and the main features are ...
+This project is my final year project for obtaining my Federal Certificate of Competence (CFC). It is a video game greatly inspired by Geometry Dash.
+The main goal of the project is to replicate the basic movements of the game, including moving, jumping, and encountering various obstacles.
+
+### Built with
+
+* Unity
+* C#
 
 ## Getting Started
 
 ### Prerequisites
 
-List all dependencies and their version needed by the project as :
-
-* DataBase Engine (MySql, PostgreSQL, MSSQL,...)
-* IDE used (PhpStorm, Visual Studio Code, IntelliJ,...)
-* Package manager (Nuget, Composer, npm, ...)
-* OS supported (W2k22, Debian12,...)
-* Virtualization (Docker, .Net, .JDK, .JRE)
-
-### Configuration
-
-How to set up the database?
-How do you set the sensitive data?
+* Game engine : Unity (2022.3.19f1)
+* Software management tool : Unity hub
+* Code editor : Rider (2023.3.3)
 
 ## Deployment
 
-### On dev environment
+### Setup Unity
 
-How to get dependencies and build?
-How to run the tests?
+1. [Install unity](https://unity.com/fr/download)
+2. Clone the repository ```https://github.com/CPNV-PRETPI/GEOMETRY-DASH-LIKE.git```
+3. Open the "Geometry_dash_like" folder in the cloned repository with Unity Hub
+4. Install the proposed version of unity (2022.3.19f1)
+5. If you aren't going to use visual studio, feel free uncheck the visual studio download
 
-### On integration environment
+### Build project
 
-How to deploy the application outside the dev environment.
+1. Configure Build Settings:
+    * Go to File > Build Settings.
+    * Choose the target platform (e.g., PC, Mac, iOS, Android) from the Platform list.
+2. Build the Project:
+    * Click on File > Build & Run or File > Build Settings and then click Build.
+    * Choose a location to save your build files and click Save.
+    * Unity will compile your project and create the build for the selected platform.
+
+### Run Test
+
+1. Select the tab :
+   * Windows > General > Test runner
+2. click "Run All" to run all the tests
 
 ## Directory structure
 
-* Tip: try the tree bash command
-
 ```shell
-├───Docs
-├───Shopping                                        //classes and packages
-│   ├───bin                                         //the binary to deploy on the end-user environment
-│   │   └───Debug
-│   └───obj
-│       └───Debug                                   
-└───TestShopping                                    //test classes
-    ├───bin
-    │   └───Debug
-    └───obj
-        └───Debug
+├───Documentation
+│   └───Class_diagram
+└───Geometry_dash_like
+    ├───.vscode
+    ├───Assets
+    │   ├───Scenes
+    │   ├───Scripts
+    │   ├───Settings
+    │   │   └───Scenes
+    │   └───Tests
+    ├───Packages
+    └───ProjectSettings
 ```
 
 ## Collaborate
 
-* Take time to read some readme and find the way you would like to help other developers collaborate with you.
-
-* They need to know:
-  * How to propose a new feature (issue, pull request)
-  * [How to commit](https://www.conventionalcommits.org/en/v1.0.0/)
-  * [How to use your workflow](https://nvie.com/posts/a-successful-git-branching-model/)
-
-## License
-
-* [Choose the license adapted to your project](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).
+* [How to commit](https://www.conventionalcommits.org/en/v1.0.0/)
+* [How to use my workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
 
 ## Contact
 
-* How to get in contact with you? Discord, Trello, Issue?
+Thomas Petermann - <Thomas.Petermann@eduvauc.ch>
