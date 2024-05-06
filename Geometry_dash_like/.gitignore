@@ -28,7 +28,7 @@
 .vscode/
 
 # code coverage reports
-Geometry_dash_like/CodeCoverage/Report/
+./CodeCoverage/
 
 # idea jetbrains
 .idea/
