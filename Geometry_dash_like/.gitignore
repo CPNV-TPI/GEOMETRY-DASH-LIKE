@@ -28,7 +28,7 @@
 .vscode/
 
 # code coverage reports
-./CodeCoverage/
+CodeCoverage/
 
 # idea jetbrains
 .idea/
