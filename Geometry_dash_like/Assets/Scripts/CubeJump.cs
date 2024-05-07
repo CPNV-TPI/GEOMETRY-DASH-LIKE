@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class CubeJump : MonoBehaviour
+public class CubeJump : MonoBehaviour, IJumpBehavior
 {
     private float _jumpForce = 10f; 
     private Rigidbody2D _rigidbody2D;
