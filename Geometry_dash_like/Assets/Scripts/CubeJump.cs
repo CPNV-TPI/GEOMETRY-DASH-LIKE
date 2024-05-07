@@ -1,32 +1,25 @@
-
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class CubeJump : MonoBehaviour, IJumpBehavior
 {
-    private float _jumpForce = 10f; 
-    private Rigidbody2D _rigidbody2D;
-    
+    private const float JumpForce = 10f;
+    private const float GroundThreshold = 0.01f;
+
+    private Rigidbody2D _rigidBody2D;
+
     private void Awake()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _rigidBody2D = GetComponent<Rigidbody2D>();
     }
-    
+
     public void Jump()
     {
-
-        if (IsGrounded())
-        {
-            _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
-        }
+        if (IsGrounded()) _rigidBody2D.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
     }
 
     private bool IsGrounded()
     {
-        float threshold = 0.01f;
-
-        return Mathf.Abs(_rigidbody2D.velocity.y) < threshold;
+        return Mathf.Abs(_rigidBody2D.velocity.y) < GroundThreshold;
     }
-
-
 }
