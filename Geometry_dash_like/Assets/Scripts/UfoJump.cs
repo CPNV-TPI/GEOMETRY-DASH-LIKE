@@ -13,6 +13,10 @@ public class UfoJump : MonoBehaviour, IJumpBehavior
 
     public void Jump()
     {
-       _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        // Annule la composante verticale de la vitesse
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+
+        // Ajoute une force ascendante
+        _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
     }
 }
