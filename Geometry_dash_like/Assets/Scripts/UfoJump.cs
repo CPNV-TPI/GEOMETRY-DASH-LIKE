@@ -1,20 +1,12 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class UfoJump : MonoBehaviour, IJumpBehavior
+public class UfoJump : JumpBehavior
 {
-    private const float JumpForce = 10f;
-
-    private Rigidbody2D _rigidBody2D;
-
-    private void Awake()
+    public override void Jump()
     {
-        _rigidBody2D = GetComponent<Rigidbody2D>();
-    }
+        RigidBody2D.velocity = new Vector2(RigidBody2D.velocity.x, 0);
 
-    public void Jump()
-    {
-        _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, 0);
-        _rigidBody2D.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+        RigidBody2D.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
     }
 }

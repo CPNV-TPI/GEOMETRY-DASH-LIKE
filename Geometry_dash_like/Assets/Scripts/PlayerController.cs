@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private IJumpBehavior _jumpBehavior;
+    private JumpBehavior _jumpBehavior;
 
     private void Awake()
     {
-        _jumpBehavior = GetComponent<IJumpBehavior>();
+        _jumpBehavior = GetComponent<JumpBehavior>();
     }
 
     private void Update()
