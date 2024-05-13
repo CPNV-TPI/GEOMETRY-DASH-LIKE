@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class JumpBehavior : MonoBehaviour
 {
     protected const float JumpForce = 10f;

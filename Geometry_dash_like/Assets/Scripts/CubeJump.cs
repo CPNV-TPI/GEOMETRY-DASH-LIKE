@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class CubeJump : JumpBehavior
 {
     private const float GroundThreshold = 0.01f;
