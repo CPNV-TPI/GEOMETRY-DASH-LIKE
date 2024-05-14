@@ -1,56 +1,43 @@
-using System;
-using System.Collections;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Death : MonoBehaviour
 {
-    private int _hearts = 3;
-    private LinkedList<(Vector3 position, float time)> _positionHistory = new LinkedList<(Vector3, float)>();
-    private float _healing;
-    private HealthUI _healthUI;
+    private Health _health;
+    private readonly LinkedList<(Vector3 position, float time)> _positionHistory = new();
 
     private void Start()
     {
-        _healthUI = GameObject.Find("Main Camera").GetComponent<HealthUI>();
+        _health = GetComponent<Health>();
     }
 
     private void Update()
     {
-        if (_hearts < 3)
-        {
-            _healing -= Time.deltaTime;
-            if (_healing <= 0)
-            {
-                _hearts++;
-                _healthUI.UpdateHeart(_hearts);
-                _healing = 30f;
-            }
-        }
-        
-        _positionHistory.AddLast((transform.position, Time.time));
-        while (_positionHistory.Count > 0 && _positionHistory.First.Value.time < Time.time - 5)
-        {
-            _positionHistory.RemoveFirst();
-        }
+        GetPlayerPositionPerFrame();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        var hearts = _health.Hearts;
+        Debug.Log("heart" + hearts);
+
         if (!collision.gameObject.CompareTag("Spike")) return;
-        if (_hearts > 0)
+        if (hearts > 1)
         {
             ResetPosition();
-            _hearts--;
-            _healthUI.UpdateHeart(_hearts);
-            _healing = 30f;
-            Debug.Log("Current Hearts: " + _hearts);
+            _health.RemoveHealth();
         }
         else
         {
             KillPlayer();
         }
-        
+    }
+
+    private void GetPlayerPositionPerFrame()
+    {
+        _positionHistory.AddLast((transform.position, Time.time));
+        while (_positionHistory.Count > 0 && _positionHistory.First.Value.time < Time.time - 5)
+            _positionHistory.RemoveFirst();
     }
 
     private void ResetPosition()
@@ -58,13 +45,10 @@ public class Death : MonoBehaviour
         if (_positionHistory.Count < 0) return;
         var positionFrom5SecondsAgo = _positionHistory.First.Value.position;
         transform.position = positionFrom5SecondsAgo;
-        
     }
 
     private void KillPlayer()
     {
         Destroy(gameObject);
     }
-
-
 }
