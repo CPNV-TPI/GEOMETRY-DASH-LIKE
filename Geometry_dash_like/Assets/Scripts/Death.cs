@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
-    private Health _health;
     private readonly LinkedList<(Vector3 position, float time)> _positionHistory = new();
+    private Health _health;
 
-    private void Start()
+    private void Awake()
     {
         _health = GetComponent<Health>();
     }
@@ -19,7 +19,6 @@ public class Death : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var hearts = _health.Hearts;
-        Debug.Log("heart" + hearts);
 
         if (!collision.gameObject.CompareTag("Spike")) return;
         if (hearts > 1)
@@ -29,6 +28,7 @@ public class Death : MonoBehaviour
         }
         else
         {
+            _health.RemoveHealth();
             KillPlayer();
         }
     }

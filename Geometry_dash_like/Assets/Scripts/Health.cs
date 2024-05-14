@@ -3,16 +3,18 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     private const float HealingDuration = 30f;
-    private const int MaximumHearts = 3;
+    private const int MaximumHearts  = 3;
     
     private float _healingTimer;
     private HealthUI _healthUI;
-
+    
     public int Hearts { get; private set; } = MaximumHearts;
+    
 
-    private void Start()
+    private void Awake()
     {
         _healthUI = GameObject.Find("Main Camera").GetComponent<HealthUI>();
+        _healthUI.InitializeHearts(MaximumHearts);
     }
 
     private void Update()
