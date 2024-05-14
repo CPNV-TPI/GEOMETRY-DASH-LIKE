@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
@@ -7,7 +8,13 @@ public class Death : MonoBehaviour
     private int _hearts = 3;
     private LinkedList<(Vector3 position, float time)> _positionHistory = new LinkedList<(Vector3, float)>();
     private float _healing;
-    
+    private HealthUI _healthUI;
+
+    private void Start()
+    {
+        _healthUI = GameObject.Find("Main Camera").GetComponent<HealthUI>();
+    }
+
     private void Update()
     {
         if (_hearts < 3)
@@ -16,6 +23,7 @@ public class Death : MonoBehaviour
             if (_healing <= 0)
             {
                 _hearts++;
+                _healthUI.UpdateHeart(_hearts);
                 _healing = 30f;
             }
         }
@@ -34,6 +42,7 @@ public class Death : MonoBehaviour
         {
             ResetPosition();
             _hearts--;
+            _healthUI.UpdateHeart(_hearts);
             _healing = 30f;
             Debug.Log("Current Hearts: " + _hearts);
         }
