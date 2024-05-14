@@ -1,17 +1,26 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class Death : MonoBehaviour
 {
     private int _hearts = 3;
-    
     private LinkedList<(Vector3 position, float time)> _positionHistory = new LinkedList<(Vector3, float)>();
+    private float _healing;
     
     private void Update()
     {
-        _positionHistory.AddLast((transform.position, Time.time));
+        if (_hearts < 3)
+        {
+            _healing -= Time.deltaTime;
+            if (_healing <= 0)
+            {
+                _hearts++;
+                _healing = 30f;
+            }
+        }
         
+        _positionHistory.AddLast((transform.position, Time.time));
         while (_positionHistory.Count > 0 && _positionHistory.First.Value.time < Time.time - 5)
         {
             _positionHistory.RemoveFirst();
@@ -25,6 +34,7 @@ public class Death : MonoBehaviour
         {
             ResetPosition();
             _hearts--;
+            _healing = 30f;
             Debug.Log("Current Hearts: " + _hearts);
         }
         else
@@ -37,7 +47,7 @@ public class Death : MonoBehaviour
     private void ResetPosition()
     {
         if (_positionHistory.Count < 0) return;
-        Vector3 positionFrom5SecondsAgo = _positionHistory.First.Value.position;
+        var positionFrom5SecondsAgo = _positionHistory.First.Value.position;
         transform.position = positionFrom5SecondsAgo;
         
     }
@@ -46,4 +56,6 @@ public class Death : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
 }
