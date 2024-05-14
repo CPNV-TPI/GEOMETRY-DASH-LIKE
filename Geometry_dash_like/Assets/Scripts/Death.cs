@@ -1,37 +1,45 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class Death : MonoBehaviour
 {
     private int _hearts = 3;
-    private Vector3 _initialPosition;
-
-    private void Start()
+    
+    private LinkedList<(Vector3 position, float time)> _positionHistory = new LinkedList<(Vector3, float)>();
+    
+    private void Update()
     {
-        _initialPosition = transform.position;
+        _positionHistory.AddLast((transform.position, Time.time));
+        
+        while (_positionHistory.Count > 0 && _positionHistory.First.Value.time < Time.time - 5)
+        {
+            _positionHistory.RemoveFirst();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Spike"))
+        if (!collision.gameObject.CompareTag("Spike")) return;
+        if (_hearts > 0)
         {
-            if (_hearts > 0)
-            {
-                ResetPosition();
-                _hearts--;
-                Debug.Log("Current Hearts: " + _hearts);
-            }
-            else
-            {
-                KillPlayer();
-                SceneManager.LoadScene("GameOver");
-            }
+            ResetPosition();
+            _hearts--;
+            Debug.Log("Current Hearts: " + _hearts);
         }
+        else
+        {
+            KillPlayer();
+        }
+        
     }
 
     private void ResetPosition()
     {
-        transform.position = _initialPosition;
+        if (_positionHistory.Count < 0) return;
+        Vector3 positionFrom5SecondsAgo = _positionHistory.First.Value.position;
+        transform.position = positionFrom5SecondsAgo;
+        
     }
 
     private void KillPlayer()
