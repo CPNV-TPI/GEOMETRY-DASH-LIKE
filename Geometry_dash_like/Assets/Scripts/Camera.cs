@@ -11,7 +11,7 @@ public class Camera : MonoBehaviour
     private float _startFollowingPosition = -5.25f;
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         if (_player.position.x >= _startFollowingPosition)
         {
