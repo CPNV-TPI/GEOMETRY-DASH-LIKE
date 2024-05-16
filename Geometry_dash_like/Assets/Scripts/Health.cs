@@ -1,45 +1,44 @@
+using System;
+using Codice.Client.BaseCommands.BranchExplorer;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     private const float HealingDuration = 30f;
     private const int MaximumHearts  = 3;
-    
-    private float _healingTimer;
-    private HealthUI _healthUI;
+    public int test;
     
     public int Hearts { get; private set; } = MaximumHearts;
-    
+    public float HealingTimer { get; private set; } = HealingDuration;
 
-    private void Awake()
+    public void Awake()
     {
-        _healthUI = GameObject.Find("Main Camera").GetComponent<HealthUI>();
-        _healthUI.InitializeHearts(MaximumHearts);
+        test = MaximumHearts;
     }
 
     private void Update()
     {
         if (Hearts == MaximumHearts) return;
-        _healingTimer -= Time.deltaTime;
-        if (_healingTimer <= 0) AddHealth();
+        HealingTimer -= Time.deltaTime;
+        if (HealingTimer <= 0) AddHealth();
     }
 
     public void RemoveHealth()
     {
         Hearts--;
-        _healthUI.UpdateHeart(Hearts);
+        EventManager.Instance.TriggerHealthChanged(Hearts);
         ResetHealingTimer();
     }
 
     private void AddHealth()
     {
         Hearts++;
-        _healthUI.UpdateHeart(Hearts);
+        EventManager.Instance.TriggerHealthChanged(Hearts);
         ResetHealingTimer();
     }
 
     private void ResetHealingTimer()
     {
-        _healingTimer = HealingDuration;
+        HealingTimer = HealingDuration;
     }
 }

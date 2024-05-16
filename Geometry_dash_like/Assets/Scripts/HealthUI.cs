@@ -5,10 +5,18 @@ public class HealthUI : MonoBehaviour
 {
     private const float XOffset = -9f;
     public GameObject heartPrefab;
+    private const int MaximumHearts  = 3;
     
     private List<GameObject> _heartList;
+    
+    
+    private void Start()
+    {
+        EventManager.Instance.OnHealthChanged += UpdateHeart;
+        InitializeHearts(MaximumHearts);
+    }
 
-    public void InitializeHearts(int maximumHealth)
+    private void InitializeHearts(int maximumHealth)
     {
         _heartList = new List<GameObject>();
         var prefabLength = heartPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().bounds.size.x;
@@ -22,7 +30,7 @@ public class HealthUI : MonoBehaviour
         }
     }
 
-    public void UpdateHeart(int hearts)
+    private void UpdateHeart(int hearts)
     {
         for (var i = 0; i < _heartList.Count; i++)
         {
