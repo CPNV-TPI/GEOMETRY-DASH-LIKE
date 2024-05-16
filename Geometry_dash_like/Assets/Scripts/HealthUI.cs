@@ -6,7 +6,6 @@ public class HealthUI : MonoBehaviour
     private const float XOffset = -9f;
     public GameObject heartPrefab;
     
-    private Health _health;
     private List<GameObject> _heartList;
 
     public void InitializeHearts(int maximumHealth)
