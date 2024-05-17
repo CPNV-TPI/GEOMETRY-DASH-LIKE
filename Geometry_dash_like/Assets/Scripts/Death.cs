@@ -21,14 +21,13 @@ public class Death : MonoBehaviour
         var hearts = _health.Hearts;
 
         if (!collision.gameObject.CompareTag("Spike")) return;
+        _health.RemoveHealth();
         if (hearts > 1)
         {
             ResetPosition();
-            _health.RemoveHealth();
         }
         else
         {
-            _health.RemoveHealth();
             KillPlayer();
         }
     }
