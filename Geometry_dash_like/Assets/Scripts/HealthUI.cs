@@ -6,10 +6,9 @@ public class HealthUI : MonoBehaviour
     private const float XOffset = -9f;
     public GameObject heartPrefab;
     private const int MaximumHearts  = 3;
-    
-    private List<GameObject> _heartList;
-    
-    
+
+    public List<GameObject> HeartList { get; private set; }
+
     private void Start()
     {
         EventManager.Instance.OnHealthChanged += UpdateHeart;
@@ -18,7 +17,7 @@ public class HealthUI : MonoBehaviour
 
     private void InitializeHearts(int maximumHealth)
     {
-        _heartList = new List<GameObject>();
+        HeartList = new List<GameObject>();
         var prefabLength = heartPrefab.transform.GetChild(0).GetComponent<SpriteRenderer>().bounds.size.x;
 
         for (var i = 0; i < maximumHealth; i++)
@@ -26,15 +25,15 @@ public class HealthUI : MonoBehaviour
             var position = new Vector3(XOffset + prefabLength * i, 4, 15);
             var heart = Instantiate(heartPrefab, position, Quaternion.identity);
             heart.transform.parent = gameObject.transform;
-            _heartList.Add(heart);
+            HeartList.Add(heart);
         }
     }
 
-    private void UpdateHeart(int hearts)
+    public void UpdateHeart(int hearts)
     {
-        for (var i = 0; i < _heartList.Count; i++)
+        for (var i = 0; i < HeartList.Count; i++)
         {
-            _heartList[i].transform.Find("FullHeart").gameObject.SetActive(i < hearts ? true : false);
+            HeartList[i].transform.Find("FullHeart").gameObject.SetActive(i < hearts ? true : false);
         }
     }
 }
