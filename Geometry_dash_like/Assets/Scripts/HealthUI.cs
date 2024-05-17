@@ -4,9 +4,9 @@ using UnityEngine;
 public class HealthUI : MonoBehaviour
 {
     private const float XOffset = -9f;
-    public GameObject heartPrefab;
-    private const int MaximumHearts  = 3;
+    private const int MaximumHearts = 3;
 
+    public GameObject heartPrefab;
     public List<GameObject> HeartList { get; private set; }
 
     private void Start()
@@ -32,8 +32,6 @@ public class HealthUI : MonoBehaviour
     public void UpdateHeart(int hearts)
     {
         for (var i = 0; i < HeartList.Count; i++)
-        {
             HeartList[i].transform.Find("FullHeart").gameObject.SetActive(i < hearts ? true : false);
-        }
     }
 }

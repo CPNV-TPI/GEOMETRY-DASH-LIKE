@@ -23,13 +23,9 @@ public class Death : MonoBehaviour
         if (!collision.gameObject.CompareTag("Spike")) return;
         _health.RemoveHealth();
         if (hearts > 1)
-        {
             ResetPosition();
-        }
         else
-        {
             KillPlayer();
-        }
     }
 
     private void GetPlayerPositionPerFrame()

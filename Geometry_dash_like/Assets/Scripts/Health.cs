@@ -1,20 +1,12 @@
-using System;
-using Codice.Client.BaseCommands.BranchExplorer;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     private const float HealingDuration = 30f;
-    private const int MaximumHearts  = 3;
-    public int test;
-    
+    private const int MaximumHearts = 3;
+
     public int Hearts { get; private set; } = MaximumHearts;
     public float HealingTimer { get; private set; } = HealingDuration;
-
-    public void Awake()
-    {
-        test = MaximumHearts;
-    }
 
     private void Update()
     {
