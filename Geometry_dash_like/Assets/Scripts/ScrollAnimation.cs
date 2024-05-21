@@ -10,7 +10,7 @@ public class ScrollAnimation : MonoBehaviour
     private RectTransform _rectTransform;
     public bool IsAnimating { get; private set; }
 
-    public void Start()
+    private void Start()
     {
         _rectTransform = levelMenu.GetComponent<RectTransform>();
     }
