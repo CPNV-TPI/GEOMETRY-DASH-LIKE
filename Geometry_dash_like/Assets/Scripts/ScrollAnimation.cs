@@ -45,8 +45,8 @@ public class ScrollAnimation : MonoBehaviour
         IsAnimating = false;
     }
 
-    private static float EaseOutSine(float t)
+    private static float EaseOutSine(float times)
     {
-        return t * (2 - t);
+        return times * (2 - times);
     }
 }
