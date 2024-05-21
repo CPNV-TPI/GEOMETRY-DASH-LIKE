@@ -40,6 +40,7 @@ public class Death : MonoBehaviour
         if (_positionHistory.Count < 0) return;
         var positionFrom5SecondsAgo = _positionHistory.First.Value.position;
         transform.position = positionFrom5SecondsAgo;
+        _positionHistory.Clear();
     }
 
     private void KillPlayer()
