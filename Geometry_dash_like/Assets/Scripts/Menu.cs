@@ -25,11 +25,11 @@ public class Menu : MonoBehaviour
     public void ScrollLevelsToTheRight()
     {
         if (_levelIndex == 2 || _scrollAnimation.IsAnimating) return;
-        _scrollAnimation.ScrollLevelsToTheRight();
+        _scrollAnimation.ScrollTheRight();
         _levelIndex++;
     }
 
-    public void ScrollLevelsToTheLeft()
+    public void ScrollToTheLeft()
     {
         if (_levelIndex == 1 || _scrollAnimation.IsAnimating) return;
         _scrollAnimation.ScrollLevelsToTheLeft();

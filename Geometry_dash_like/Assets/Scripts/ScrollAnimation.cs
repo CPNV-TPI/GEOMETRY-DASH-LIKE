@@ -15,12 +15,12 @@ public class ScrollAnimation : MonoBehaviour
         _rectTransform = levelMenu.GetComponent<RectTransform>();
     }
 
-    public void ScrollLevelsToTheRight()
+    public void ScrollTheRight()
     {
         StartCoroutine(AnimateScroll(new Vector2(RightMove, 0), 0.5f));
     }
 
-    public void ScrollLevelsToTheLeft()
+    public void ScrollToTheLeft()
     {
         StartCoroutine(AnimateScroll(new Vector2(LeftMove, 0), 0.5f));
     }
