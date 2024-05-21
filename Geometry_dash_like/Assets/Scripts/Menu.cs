@@ -29,10 +29,10 @@ public class Menu : MonoBehaviour
         _levelIndex++;
     }
 
-    public void ScrollToTheLeft()
+    public void ScrollLevelsToTheLeft()
     {
         if (_levelIndex == 1 || _scrollAnimation.IsAnimating) return;
-        _scrollAnimation.ScrollLevelsToTheLeft();
+        _scrollAnimation.ScrollToTheLeft();
         _levelIndex--;
     }
 }
