@@ -1,14 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
 
 public class Death : MonoBehaviour
 {
     private readonly LinkedList<(Vector3 position, float time)> _positionHistory = new();
     private Health _health;
+    
+    private PlayerMovementManager _playerMovementManager;
+    public Text countdownText;
 
     private void Awake()
     {
         _health = GetComponent<Health>();
+        _playerMovementManager = GetComponent<PlayerMovementManager>();
     }
 
     private void Update()
@@ -35,16 +42,32 @@ public class Death : MonoBehaviour
             _positionHistory.RemoveFirst();
     }
 
-    private void ResetPosition()
-    {
-        if (_positionHistory.Count < 0) return;
-        var positionFrom5SecondsAgo = _positionHistory.First.Value.position;
-        transform.position = positionFrom5SecondsAgo;
-        _positionHistory.Clear();
-    }
-
     private void KillPlayer()
     {
         Destroy(gameObject);
+        SceneManager.LoadSceneAsync("Menu");
+    }
+    
+    private void ResetPosition()
+    {
+        if (_positionHistory.Count <= 0) return;
+        _playerMovementManager.DisableMovement();
+        var positionFrom5SecondsAgo = _positionHistory.First.Value.position;
+        transform.position = positionFrom5SecondsAgo;
+        _positionHistory.Clear();
+        
+        StartCoroutine(ReactivateMovementAfterDelay(3f));
+    }
+    
+    
+    private IEnumerator ReactivateMovementAfterDelay(float delay)
+    {
+        for (var i = (int)delay; i > 0; i--)
+        {
+            countdownText.text = i.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+        _playerMovementManager.EnableMovement();
+        countdownText.text = "";
     }
 }
