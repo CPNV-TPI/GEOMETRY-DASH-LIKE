@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -45,7 +44,7 @@ public class Death : MonoBehaviour
     private void KillPlayer()
     {
         Destroy(gameObject);
-        SceneManager.LoadSceneAsync("Menu");
+        EventManager.Instance.TriggerPlayerDeath();
     }
     
     private void ResetPosition()
