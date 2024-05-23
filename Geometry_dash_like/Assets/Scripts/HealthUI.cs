@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HealthUI : MonoBehaviour
 {
-    private const float XOffset = -9f;
+    private const float XOffset = -8f;
     private const int MaximumHearts = 3;
 
     public GameObject heartPrefab;
@@ -22,7 +22,7 @@ public class HealthUI : MonoBehaviour
 
         for (var i = 0; i < maximumHealth; i++)
         {
-            var position = new Vector3(XOffset + prefabLength * i, 4, 15);
+            var position = new Vector3(XOffset + (prefabLength + 0.1f) * i, 4, -10);
             var heart = Instantiate(heartPrefab, position, Quaternion.identity);
             heart.transform.parent = gameObject.transform;
             HeartList.Add(heart);
