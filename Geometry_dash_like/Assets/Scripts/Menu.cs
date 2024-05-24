@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    private int _levelIndex = 1;
-    private ScrollAnimation _scrollAnimation;
     public GameObject scoreBoard;
+    private int _baseLevelIndex = 1;
+    private ScrollAnimation _scrollAnimation;
 
 
     public void Start()
@@ -25,23 +25,23 @@ public class Menu : MonoBehaviour
 
     public void ScrollLevelsToTheRight()
     {
-        if (_levelIndex == 2 || _scrollAnimation.IsAnimating) return;
+        if (_baseLevelIndex == 2 || _scrollAnimation.IsAnimating) return;
         _scrollAnimation.ScrollTheRight();
-        _levelIndex++;
+        _baseLevelIndex++;
     }
 
     public void ScrollLevelsToTheLeft()
     {
-        if (_levelIndex == 1 || _scrollAnimation.IsAnimating) return;
+        if (_baseLevelIndex == 1 || _scrollAnimation.IsAnimating) return;
         _scrollAnimation.ScrollToTheLeft();
-        _levelIndex--;
+        _baseLevelIndex--;
     }
-    
+
     public void DisplayScoreBoard()
     {
         scoreBoard.SetActive(true);
     }
-    
+
     public void CloseScoreBoard()
     {
         scoreBoard.SetActive(false);
