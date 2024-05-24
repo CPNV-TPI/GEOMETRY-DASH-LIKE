@@ -4,11 +4,11 @@ using UnityEngine;
 public class ScoreManager
 {
     private const string FileName = "score.json";
-    private readonly ScoreEntry _scoreData;
+    private readonly ScoreEntry _scoreEntry;
 
     public ScoreManager(string playerName, string score, string levelIndex)
     {
-        _scoreData = new ScoreEntry
+        _scoreEntry = new ScoreEntry
         {
             playerName = VerifyPlayerName(playerName),
             score = score,
@@ -20,7 +20,7 @@ public class ScoreManager
     {
         var dataList = LoadScoreFromJson();
 
-        dataList.scoreEntryList.Add(_scoreData);
+        dataList.scoreEntryList.Add(_scoreEntry);
 
         var json = JsonUtility.ToJson(dataList, true);
         var path = Path.Combine(Application.persistentDataPath, FileName);
