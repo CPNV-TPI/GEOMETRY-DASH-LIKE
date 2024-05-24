@@ -2,17 +2,16 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    [SerializeField] private Transform _player;
-    private Vector3 _currentVelocity;
+    private const float SmoothTime = 0.25f;
+
+    private const float StartFollowingPosition = -5.25f;
+    [SerializeField] private Transform player;
     private readonly Vector3 _offset = new(5, 0, -10);
-    private readonly float _smoothTime = 0.25f;
-
-    private readonly float _startFollowingPosition = -5.25f;
-
-    // Update is called once per frame
+    private Vector3 _currentVelocity;
+    
     private void Update()
     {
-        if (!_player) return;
+        if (!player) return;
         FollowPlayer();
     }
 
@@ -20,22 +19,18 @@ public class Camera : MonoBehaviour
     {
         transform.position = Vector3.SmoothDamp(
             transform.position,
-            new Vector3(_player.position.x, yPosition, _player.position.z) + _offset,
+            new Vector3(player.position.x, yPosition, player.position.z) + _offset,
             ref _currentVelocity,
-            _smoothTime
+            SmoothTime
         );
     }
 
     private void FollowPlayerY(float yPosition)
     {
-        if (_player.position.x >= _startFollowingPosition)
-        {
-            if (_player.position.y >= transform.position.y + 3) yPosition = transform.position.y + 2;
-
-            if (_player.position.y <= transform.position.y - 5) yPosition = transform.position.y - 2;
-
-            FollowPlayerX(yPosition);
-        }
+        if (player.position.x < StartFollowingPosition) return;
+        if (player.position.y >= transform.position.y + 3) yPosition = transform.position.y + 2;
+        if (player.position.y <= transform.position.y - 5) yPosition = transform.position.y - 2;
+        FollowPlayerX(yPosition);
     }
 
     private void FollowPlayer()
