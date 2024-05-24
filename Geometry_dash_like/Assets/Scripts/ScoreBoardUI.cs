@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ScoreBoardUI : MonoBehaviour
 {
-    public GameObject scorePrefab;
+    [SerializeField] private GameObject scorePrefab;
 
     public void InitializeScores(string levelIndex)
     {
