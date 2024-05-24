@@ -8,7 +8,7 @@ public class ScoreRegisterUI : MonoBehaviour
     [SerializeField] private GameObject scoreRegisterDisplay;
     [SerializeField] private GameObject scoreCalculationObject;
     [SerializeField] private Text playerName;
-    public int levelIndex;
+    [SerializeField] private int levelIndex;
     private float _higherPercentageTravelled;
     private ScoreCalculator _scoreCalculator;
 
