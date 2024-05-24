@@ -3,8 +3,8 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
     private const float SmoothTime = 0.25f;
-
     private const float StartFollowingPosition = -5.25f;
+    
     [SerializeField] private Transform player;
     private readonly Vector3 _offset = new(5, 0, -10);
     private Vector3 _currentVelocity;
