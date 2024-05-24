@@ -32,8 +32,14 @@ public class ScoreRegisterUI : MonoBehaviour
     
     public void RegisterScore()
     {
-        var saveDataToJson = new ScoreManager(playerName.text, _higherPercentageTravelled.ToString("F2"), levelIndex.ToString());
+        var verifiedPlayerName = VerifyPlayerName(playerName.text);
+        var saveDataToJson = new ScoreManager(verifiedPlayerName, _higherPercentageTravelled.ToString("F2"), levelIndex.ToString());
         saveDataToJson.SaveScoreToJson();
         ReturnToMenu();
+    }
+    
+    private static string VerifyPlayerName(string playerName)
+    {
+        return !string.IsNullOrEmpty(playerName) ? playerName : "User";
     }
 }

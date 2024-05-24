@@ -10,7 +10,7 @@ public class ScoreManager
     {
         _scoreEntry = new ScoreEntry
         {
-            playerName = VerifyPlayerName(playerName),
+            playerName = playerName,
             score = score,
             levelIndex = levelIndex
         };
@@ -33,10 +33,5 @@ public class ScoreManager
         if (!File.Exists(path)) return new ScoreEntryList();
         var json = File.ReadAllText(path);
         return JsonUtility.FromJson<ScoreEntryList>(json);
-    }
-
-    private static string VerifyPlayerName(string playerName)
-    {
-        return playerName != "" ? playerName : "User";
     }
 }
