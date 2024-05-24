@@ -7,6 +7,7 @@ public class ScoreRegisterUI : MonoBehaviour
     public Text scoreText;
     public GameObject scoreRegisterDisplay;
     public GameObject scoreCalculationObject;
+    public Text playerName;
     public int levelIndex;
     private float _higherPercentageTravelled;
     private ScoreCalculator _scoreCalculator;
@@ -27,5 +28,12 @@ public class ScoreRegisterUI : MonoBehaviour
     public void ReturnToMenu()
     {
         SceneManager.LoadSceneAsync("Menu");
+    }
+    
+    public void RegisterScore()
+    {
+        var saveDataToJson = new ScoreManager(playerName.text, _higherPercentageTravelled.ToString("F2"), levelIndex.ToString());
+        saveDataToJson.SaveScoreToJson();
+        ReturnToMenu();
     }
 }
