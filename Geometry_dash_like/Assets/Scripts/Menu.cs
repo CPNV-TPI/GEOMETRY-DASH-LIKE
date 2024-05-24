@@ -5,6 +5,7 @@ public class Menu : MonoBehaviour
 {
     private int _levelIndex = 1;
     private ScrollAnimation _scrollAnimation;
+    public GameObject scoreBoard;
 
 
     public void Start()
@@ -34,5 +35,15 @@ public class Menu : MonoBehaviour
         if (_levelIndex == 1 || _scrollAnimation.IsAnimating) return;
         _scrollAnimation.ScrollToTheLeft();
         _levelIndex--;
+    }
+    
+    public void DisplayScoreBoard()
+    {
+        scoreBoard.SetActive(true);
+    }
+    
+    public void CloseScoreBoard()
+    {
+        scoreBoard.SetActive(false);
     }
 }

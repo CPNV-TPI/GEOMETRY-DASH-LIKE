@@ -1160,7 +1160,7 @@ PrefabInstance:
     - target: {fileID: 8401831663236314853, guid: 9a2ad06c0c7c21e43983bbc051b7c448, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1863482146}
+      objectReference: {fileID: 1863482147}
     - target: {fileID: 8401831663236314853, guid: 9a2ad06c0c7c21e43983bbc051b7c448, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1171,7 +1171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8401831663236314853, guid: 9a2ad06c0c7c21e43983bbc051b7c448, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenScoreBoard
+      value: DisplayScoreBoard
       objectReference: {fileID: 0}
     - target: {fileID: 8401831663236314853, guid: 9a2ad06c0c7c21e43983bbc051b7c448, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -1184,6 +1184,10 @@ PrefabInstance:
     - target: {fileID: 8401831663236314853, guid: 9a2ad06c0c7c21e43983bbc051b7c448, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: ScoreBoardUI, AssemblyForTests
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401831663236314853, guid: 9a2ad06c0c7c21e43983bbc051b7c448, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8401831663236314853, guid: 9a2ad06c0c7c21e43983bbc051b7c448, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
@@ -1480,6 +1484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1863482145}
   - component: {fileID: 1863482146}
+  - component: {fileID: 1863482147}
   m_Layer: 5
   m_Name: ScoreBoard
   m_TagString: Untagged
@@ -1518,6 +1523,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b0488307267b27418d7e2f085aafc92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1863482147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863482144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ddb6344428268469c340cf679ee1ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scorePrefab: {fileID: 7798382042508563917, guid: 1646254e4b7595e4481b28ca3b3d7ecb, type: 3}
@@ -1826,9 +1843,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -125.000175}
-  m_SizeDelta: {x: 500, y: 78.25}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.0000076293945}
+  m_SizeDelta: {x: 500, y: 0}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1947406057
 MonoBehaviour:
   m_ObjectHideFlags: 0

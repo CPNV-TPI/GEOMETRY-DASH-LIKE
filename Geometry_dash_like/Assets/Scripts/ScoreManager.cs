@@ -30,7 +30,7 @@ public class ScoreManager
         Debug.Log("Data saved to: " + path);
     }
     
-    private static ScoreEntryList LoadScoreFromJson()
+    public static ScoreEntryList LoadScoreFromJson()
     {
         var path = Path.Combine(Application.persistentDataPath, FileName);
         if (File.Exists(path))
