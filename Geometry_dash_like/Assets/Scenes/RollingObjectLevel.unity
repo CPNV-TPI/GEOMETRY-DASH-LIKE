@@ -4417,6 +4417,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3120599546802399135, guid: 2549c3b1aec73b04e890a9cf8e976cb4, type: 3}
+      propertyPath: m_Name
+      value: FinishCollision
+      objectReference: {fileID: 0}
+    - target: {fileID: 3120599546802399135, guid: 2549c3b1aec73b04e890a9cf8e976cb4, type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     - target: {fileID: 5563198261230514099, guid: 2549c3b1aec73b04e890a9cf8e976cb4, type: 3}
       propertyPath: m_Name
       value: Finish

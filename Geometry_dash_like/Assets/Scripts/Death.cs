@@ -25,7 +25,11 @@ public class Death : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var hearts = _health.Hearts;
-
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            KillPlayer();
+        }
+        
         if (!collision.gameObject.CompareTag("Spike")) return;
         _health.RemoveHealth();
         if (hearts > 1)
