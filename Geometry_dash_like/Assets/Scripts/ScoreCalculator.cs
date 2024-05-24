@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class ScoreCalculator : MonoBehaviour
 {
-    public GameObject finishLine;
-    public int levelIndex;
+    [SerializeField] private GameObject finishLine;
     private float _finishLineWidth;
     private float _initialPlayerPositionX;
     private float _levelLength;
