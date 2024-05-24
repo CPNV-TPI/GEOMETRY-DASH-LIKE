@@ -46,6 +46,6 @@ public class ScoreManager
     
     private static string VerifyPlayerName(string playerName)
     {
-        return playerName != "" ? playerName : "user";
+        return playerName != "" ? playerName : "User";
     }
 }

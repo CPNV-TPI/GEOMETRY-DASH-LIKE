@@ -17,7 +17,7 @@ public class ScoreBoardUI : MonoBehaviour
         
         foreach (var scoreEntry in dataList.scoreEntryList)
         {
-            if (scoreEntry.levelIndex != levelIndex) return;
+            if (scoreEntry.levelIndex != levelIndex) continue;
             var position = new Vector3(0, 0, 0);
             var score = Instantiate(scorePrefab, position, Quaternion.identity);
             

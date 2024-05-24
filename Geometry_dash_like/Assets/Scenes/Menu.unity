@@ -1762,7 +1762,7 @@ PrefabInstance:
     - target: {fileID: 8401831663236314853, guid: 9a2ad06c0c7c21e43983bbc051b7c448, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1863482146}
+      objectReference: {fileID: 1863482147}
     - target: {fileID: 8401831663236314853, guid: 9a2ad06c0c7c21e43983bbc051b7c448, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1773,7 +1773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8401831663236314853, guid: 9a2ad06c0c7c21e43983bbc051b7c448, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenScoreBoard
+      value: DisplayScoreBoard
       objectReference: {fileID: 0}
     - target: {fileID: 8401831663236314853, guid: 9a2ad06c0c7c21e43983bbc051b7c448, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
