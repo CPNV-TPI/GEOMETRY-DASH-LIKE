@@ -1137,7 +1137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6996765023789840063, guid: 9a2ad06c0c7c21e43983bbc051b7c448, type: 3}
       propertyPath: m_text
-      value: 'Niveau 1 -Objet roulant
+      value: 'Niveau 1 - Objet roulant
 
 '
       objectReference: {fileID: 0}

@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class ScoreRegisterUI : MonoBehaviour
 {
-    public Text scoreText;
-    public GameObject scoreRegisterDisplay;
-    public GameObject scoreCalculationObject;
-    public Text playerName;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private GameObject scoreRegisterDisplay;
+    [SerializeField] private GameObject scoreCalculationObject;
+    [SerializeField] private Text playerName;
     public int levelIndex;
     private float _higherPercentageTravelled;
     private ScoreCalculator _scoreCalculator;
@@ -29,15 +29,16 @@ public class ScoreRegisterUI : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("Menu");
     }
-    
+
     public void RegisterScore()
     {
         var verifiedPlayerName = VerifyPlayerName(playerName.text);
-        var saveDataToJson = new ScoreManager(verifiedPlayerName, _higherPercentageTravelled.ToString("F2"), levelIndex.ToString());
+        var saveDataToJson = new ScoreManager(verifiedPlayerName, _higherPercentageTravelled.ToString("F2"),
+            levelIndex.ToString());
         saveDataToJson.SaveScoreToJson();
         ReturnToMenu();
     }
-    
+
     private static string VerifyPlayerName(string playerName)
     {
         return !string.IsNullOrEmpty(playerName) ? playerName : "User";
