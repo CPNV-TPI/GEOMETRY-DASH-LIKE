@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Death : MonoBehaviour
 {
-    public Text countdownText;
+    [SerializeField] private Text countdownText;
     private readonly LinkedList<(Vector3 position, float time)> _positionHistory = new();
     private Health _health;
 
