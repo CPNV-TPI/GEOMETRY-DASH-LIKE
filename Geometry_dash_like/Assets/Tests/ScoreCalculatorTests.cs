@@ -37,7 +37,7 @@ namespace Tests
         }
         
         [UnityTest]
-        public IEnumerator ScoreCalculationTest()
+        public IEnumerator ScoreCalculation_PlayerMovesForward_PlayerTravelHalfLevel()
         {
             var position = _player.transform.position;
             var initialPlayerPositionX = position.x;
