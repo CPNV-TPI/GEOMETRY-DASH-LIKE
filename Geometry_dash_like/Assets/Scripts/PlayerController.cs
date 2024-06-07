@@ -1,22 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private CubeJump _cubeJump;
+    private JumpBehavior _jumpBehavior;
 
     private void Awake()
     {
-        _cubeJump = GetComponent<CubeJump>();
+        _jumpBehavior = GetComponent<JumpBehavior>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _cubeJump.Jump();
-        }
+        if (Input.GetKeyDown(KeyCode.Space)) _jumpBehavior.Jump();
     }
-    
 }
